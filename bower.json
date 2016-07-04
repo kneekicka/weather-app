@@ -1,0 +1,12 @@
+{
+  "name": "weather-app",
+  "version": "0.0.1",
+  "description": "Simple weather application.",
+  "main": "index.html",
+  "author": "Simogin Nikita",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.7",
+    "weather-icons": "^2.0.10"
+  }
+}
