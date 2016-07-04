@@ -1,0 +1,29 @@
+@media only screen 
+  and (max-device-width: 736px) 
+  { 
+
+  	#customPanelHeading{
+
+		.city{
+
+			&>p{
+				font-size: 20px;
+			}	
+		}
+
+		.temp{
+
+			&>p{
+				font-size: 50px;
+			}
+
+		}
+		.humidity, .wind{
+
+			&>p{
+				font-size: 20px;
+			}
+			
+		} 
+	}	
+}

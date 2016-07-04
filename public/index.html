@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Weather test task</title>
+	</head>
+	<body ng-app="app" ng-controller="WeatherCTRL">
+		<div class="panel panel-default" ng-cloak>
+			<!-- Panel heading that shows weather data -->
+			<div class="panel-heading" id="customPanelHeading">
+				<div class="container">
+					<div class="row">
+						<div class="city"><p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{city}}, {{country}}</p></div>
+					</div>
+					<div class="row main-info text-center">
+						<div class="col-xs-12">
+							<div class="icon"><p><i class="{{icon}}"></i></p></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="temp">
+								<p>{{temp | round | belowAbove}}&#176;</p>
+							</div>
+						</div>
+						<div class="col-xs-6 text-right">
+							<div class="humidity">
+								<p><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> {{humidity}} %</p>
+							</div>
+							<div class="wind">
+								<p><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> {{wind}} m/s</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Panel body with search and list of added cities -->
+			<div class="panel-body">
+				<div class="container">
+					<div class="row searchLine">
+						<div class="col-md-5 col-sm-12">	
+							<div class="input-group"> 
+								<input type="text" class="form-control" ng-model="query" id="cityAdd" placeholder="Enter the city name"> 
+								<span class="input-group-btn"> 
+									<button class="btn btn-default" ng-click="search()">
+										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+									</button> 
+									<button class="btn btn-default" ng-click="addCity()">
+										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+									</button>
+								</span> 
+							</div>
+						</div>
+					</div>
+					<h3>List of added cities</h3>
+					<ul class="addedCities">
+						<li ng-repeat="place in places" class="addedCity col-xs-12 col-sm-6 col-md-4 ">
+							<div class="col-md-9 cityText">
+								<p>{{place.name}}, {{place.sys.country}}</p>
+								<p>{{place.main.temp | round | belowAbove}} &#176;{{unit}} </p>
+							</div>
+							<!-- Search line buttons -->
+							<div class="col-md-3 text-right">	
+								<button class="searchButtons btn btn-default" ng-click="watchCity($index)">
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								</button>						
+								<button class="searchButtons btn btn-default" ng-click="removePlace($index)">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</button>
+							</div>	
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<!-- Footer -->
+		<div id="footer" class="text-center">
+			<p>Simple weather app by Nikita Simogin</p>
+		</div>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="build/app.js"></script>
+	</body>
+</html>

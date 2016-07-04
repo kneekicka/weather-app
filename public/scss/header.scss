@@ -1,0 +1,39 @@
+#customPanelHeading{
+
+	.city{
+
+		&> p{
+			font-size: 30px;
+		}
+
+	}
+
+	.icon{
+		border-bottom: 1px solid #fff;
+		margin-bottom: 20px;
+
+		&> p{
+			font-size: 100px;
+		}
+	}
+
+	.temp{
+
+		&> p{
+			font-size: 70px;
+		}
+
+	}	
+
+	.humidity, .wind{
+
+		&>p{
+			font-size: 30px;
+		}
+
+	}
+
+	.main-info{
+		height: 70px;
+	}
+}	
